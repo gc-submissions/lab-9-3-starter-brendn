@@ -58,7 +58,15 @@ public class TrackerServiceA implements TrackerService {
 
     @Override
     public CountPair getTop() {
-        return null;
+        int max = 0;
+        CountPair out = null;
+        for (CountPair pair : pairs) {
+            if (pair.getCount() > max) {
+                max = pair.getCount();
+                out = pair;
+            }
+        }
+        return out;
     }
 
     @Override
