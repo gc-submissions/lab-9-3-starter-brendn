@@ -4,10 +4,8 @@ import co.grandcircus.trackerapi.model.CountPair;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class TrackerServiceA implements TrackerService {
@@ -56,7 +54,10 @@ public class TrackerServiceA implements TrackerService {
 
     @Override
     public String getLatest() {
-        return null;
+        if (pairs.size() > 0) {
+            return pairs.get(pairs.size() - 1).getToken();
+        }
+        return "no";
     }
 
     @Override
@@ -81,15 +82,12 @@ public class TrackerServiceA implements TrackerService {
     	}
         return latest5;
     }
-    
-    
+
 
     @Override
     public List<CountPair> getTop5() {
     	List<CountPair> top5 = new ArrayList<>();
-    	List<CountPair> sortedPairs = pairs.stream()
-    			  .sorted(Comparator.comparing(CountPair::getCount).reversed())
-    			  .collect(Collectors.toList());
+    	List<CountPair> sortedPairs = pairs.stream().sorted(Comparator.comparing(CountPair::getCount).reversed()).toList();
     	
     	for (int i = 0; i < 4; i++) {
     		top5.add(sortedPairs.get(i));
