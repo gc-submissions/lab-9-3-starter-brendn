@@ -2,6 +2,7 @@ package co.grandcircus.trackerapi.controller;
 
 import java.util.List;
 
+import co.grandcircus.trackerapi.CountPairRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +19,7 @@ public class TrackerApiController {
 	
 	// When you have multiple services that implement TrackerService,
 	// the @Qualifier annotation picks which to inject here.
-	@Qualifier("trackerServiceA")
+	@Qualifier("trackerServiceB")
 	@Autowired
 	TrackerService service;
 
