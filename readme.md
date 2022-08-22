@@ -1,4 +1,5 @@
 # Tracker API Lab
+by Brendan Arthur and Peter Sharkas
 
 [Lab Instructions](https://docs.google.com/document/d/1MYeCE5qpnVbt9SHUHnK8GsrCEOS51yWTTtaDlfV6tCU/preview#heading=h.co5gym6ztnhs)
 
